@@ -1,5 +1,4 @@
 """Importing Calculator Class from calculator > main.py for Testing"""
-
 from calculator.main import Calculator
 
 
@@ -29,5 +28,5 @@ def test_calculator_multiply():
 def test_calculator_divide():
     """ To check if calculator division result is correct"""
     calc_obj = Calculator()
-    calc_obj.division(20, 10)
+    calc_obj.division(20, 0)
     assert calc_obj.get_result() == 2
