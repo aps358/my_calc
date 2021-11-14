@@ -29,5 +29,5 @@ def test_calculator_multiply():
 def test_calculator_divide():
     """ To check if calculator division result is correct"""
     calc_obj = Calculator()
-    calc_obj.division(20,10)
+    calc_obj.division(20, 10)
     assert calc_obj.get_result() == 2
