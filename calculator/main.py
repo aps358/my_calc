@@ -1,41 +1,42 @@
-# Creating a Module Calculator
+""" Define the class Calculator """
 class Calculator:
+    """ Creating a Module Calculator """
 
     # result set to 0 for initialization
     result = 0
 
-    # Defining the get_result function
+
     def get_result(self):
-        # to get the latest result
+        """ Defining the get_result function """
         return self.result
 
-    # Defining the addition function
+
     def addition(self, value_a, value_b):
-        # updates the result of addition of two numbers to global result
+        """ Defining the addition function """
         self.result = (value_a + value_b)
 
         # returns the result
         return self.result
 
-    # Defining the subtraction function
+
     def subtraction(self, value_a, value_b):
-        # updates the result of subtraction of two numbers to global result
+        """ Defining the subtraction function """
         self.result = (value_a - value_b)
 
         # returns the result
         return self.result
 
-    # Defining the multiplication function
+
     def multiplication(self, value_a, value_b):
-        # updates the result of multiplication of two numbers to global result
+        """ Defining the multiplication function """
         self.result = (value_a * value_b)
 
         # returns the result
         return self.result
 
-    # Defining the division function
+
     def division(self, value_a, value_b):
-        # updates the result of division of two numbers to global result
+        """ Defining the division function """
         self.result = (value_a / value_b)
 
         # returns the result
