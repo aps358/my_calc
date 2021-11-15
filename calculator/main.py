@@ -28,9 +28,38 @@ class Calculator:
 
     @staticmethod
     def get_last_calculation_added():
+        """ Gets last calculation from history array """
         return Calculator.history[-1]
 
     @staticmethod
+    def get_calculation_count():
+        """ Gets number of calculations from history array """
+        return len(Calculator.history)
+
+    @staticmethod
     def add_nums(value_a, value_b):
-        """ Adds given number and appends the result to history """
+        """ Adds given two numbers and appends the result to history """
         addition = Addition.create(value_a, value_b)
+        Calculator.add_calculation_to_history(addition)
+        return Calculator.get_last_calculation_added()
+
+    @staticmethod
+    def subtract_nums(value_a, value_b):
+        """ Subtracts given two numbers and appends the result to history """
+        subtraction = Subtraction.create(value_a, value_b)
+        Calculator.add_calculation_to_history(subtraction)
+        return Calculator.get_last_calculation_added()
+
+    @staticmethod
+    def multiply_nums(value_a, value_b):
+        """ Multiplies given two numbers and appends the result to history """
+        multiplication = Multiplication.create(value_a, value_b)
+        Calculator.add_calculation_to_history(multiplication)
+        return Calculator.get_last_calculation_added()
+
+    @staticmethod
+    def divide_nums(value_a, value_b):
+        """ Divides given two numbers and appends the result to history """
+        division = Division.create(value_a, value_b)
+        Calculator.add_calculation_to_history(division)
+        return Calculator.get_last_calculation_added()
