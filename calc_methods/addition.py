@@ -9,6 +9,6 @@ class Addition(Calculation):
 
     """ Performs addition between two values coming from Parent Class and gives the results """
 
-    def get_result(self):
+    def getresult(self):
         # you need to use self to reference the data contained in the object instance
         return self.value_a + self.value_b
