@@ -41,7 +41,7 @@ class Calculator:
         """ Adds given two numbers and appends the result to history """
         addition = Addition.create(value_a, value_b)
         Calculator.add_calculation_to_history(addition)
-        return Calculator.get_last_calculation_added().
+        return Calculator.get_last_calculation_added()
 
     @staticmethod
     def subtract_nums(value_a, value_b):
