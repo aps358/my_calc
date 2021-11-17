@@ -6,7 +6,7 @@ from calc_methods.calculation import Calculation
 
 
 class Multiplication(Calculation):
-    """ Performs multiplication between two values coming from Parent Class and gives the results """
+    """ Performs multiply between two values coming from Parent Class and gives the results """
 
     def getresult(self):
         """ Using self to reference the data contained in the object instance """
