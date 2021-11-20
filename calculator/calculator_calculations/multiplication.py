@@ -1,6 +1,6 @@
 """ Import Calculation Parent Class Constructor """
 
-from calc_methods.calculation import Calculation
+from calculator.calculator_calculations.calculation import Calculation
 
 # This is multiplication method which inherits the calculation class constructor
 
@@ -10,4 +10,7 @@ class Multiplication(Calculation):
 
     def getresult(self):
         """ Using self to reference the data contained in the object instance """
-        return self.value_a * self.value_b
+        multiplication_of_values = 1.0
+        for value in self.values:
+            multiplication_of_values = multiplication_of_values * value
+        return multiplication_of_values
