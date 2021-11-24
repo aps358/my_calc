@@ -34,11 +34,9 @@ class Calculator:
 
     def division(self, value_a, value_b):
         """ Defining the division function """
-        try:
-            self.result = (value_a / value_b)
+        self.result = (value_a / value_b)
 
-            # returns the result
-            return self.result
+        # returns the result
+        return self.result
 
-        except ZeroDivisionError:
-            return "Cannot divide by zero !!!"
+
