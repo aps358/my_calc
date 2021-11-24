@@ -31,9 +31,7 @@ def test_calculator_multiply():
 
 def test_calculator_divide():
     """ To check if calculator division result is correct"""
-    try:
-        calc_obj = Calculator()
-        calc_obj.division(20, 0)
-        assert calc_obj.get_result() == 2
-    except ZeroDivisionError:
-        print("Cannot divide by zero !!!")
+
+    calc_obj = Calculator()
+    calc_obj.division(20, 0)
+    assert calc_obj.get_result() == 0
