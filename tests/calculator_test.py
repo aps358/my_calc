@@ -36,4 +36,4 @@ def test_calculator_divide():
         calc_obj.division(20, 0)
         assert calc_obj.get_result() == 2
     except ZeroDivisionError:
-        return "Cannot divide by zero !!!"
+        print("Cannot divide by zero !!!")

@@ -38,5 +38,3 @@ class Calculator:
 
         # returns the result
         return self.result
-
-
