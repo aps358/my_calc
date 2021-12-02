@@ -4,12 +4,33 @@ from calculator.calculator_calculations.subtraction import Subtraction
 from calculator.calculator_calculations.multiplication import Multiplication
 from calculator.calculator_calculations.division import Division
 from calculator.history_calculations.history_calculations import History
+from csv_handling.read_csv import CSVRead
 
 
 class Calculator:
     """ Creating a Module Calculator """
     # result set to 0 for initialization
     history = []
+    data = []
+    path = ''
+    move_path = ''
+
+    def __init__(self, path):
+        self.data = CSVRead.read_data(path)
+        self.path = path
+        self.move_path = path.replace("input", "done")
+
+    def get_data(self):
+        csv_data = self.data
+        num1 = csv_data['num_1'].values
+        num2 = csv_data['num_2'].values
+        add = csv_data['add_nums'].values
+        sub = csv_data['sub_nums'].values
+        multi = csv_data['mult_nums'].values
+        div = csv_data['div_nums'].values
+
+        # CSVRead.move_file(self.path, self.move_path)
+        return num1, num2, add, sub, multi, div
 
     @staticmethod
     def add_nums(*args):
