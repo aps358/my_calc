@@ -13,7 +13,6 @@ class Calculator:
     history = []
     data = []
     path = ''
-    move_path = ''
 
     def __init__(self, path):
         self.data = CSVRead.read_data(path)
@@ -21,15 +20,15 @@ class Calculator:
         self.move_path = path.replace("input", "done")
 
     def get_data(self):
+        """ Splits the data and returns all columns """
         csv_data = self.data
         num1 = csv_data['num_1'].values
         num2 = csv_data['num_2'].values
-        add = csv_data['add_nums'].values
-        sub = csv_data['sub_nums'].values
-        multi = csv_data['mult_nums'].values
-        div = csv_data['div_nums'].values
+        add = [round(i, 3) for i in csv_data['add_nums'].values]
+        sub = [round(i, 3) for i in csv_data['sub_nums'].values]
+        multi = [round(i, 3) for i in csv_data['mult_nums'].values]
+        div = [round(i, 3) for i in csv_data['div_nums'].values]
 
-        # CSVRead.move_file(self.path, self.move_path)
         return num1, num2, add, sub, multi, div
 
     @staticmethod
