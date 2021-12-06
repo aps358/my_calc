@@ -1,10 +1,28 @@
 """ import all the methods from calc_methods"""
+import logging
+import sys
 from calculator.calculator_calculations.addition import Addition
 from calculator.calculator_calculations.subtraction import Subtraction
 from calculator.calculator_calculations.multiplication import Multiplication
 from calculator.calculator_calculations.division import Division
 from calculator.history_calculations.history_calculations import History
 from csv_handling.read_csv import CSVRead
+
+sys.tracebacklimit = 0
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler('log/sample.log')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
 
 
 class Calculator:
@@ -35,6 +53,7 @@ class Calculator:
     def add_nums(*args):
         """ Adds given list of numbers and appends the result to history """
         addition = Addition(args).getresult()
+        logger.debug('Add: %f + %f = %f', args[0], args[1], addition)
         History.add_calculation_to_history(addition)
         return History.get_last_calculation_added()
 
@@ -42,6 +61,7 @@ class Calculator:
     def subtract_nums(*args):
         """ Subtracts given list of numbers and appends the result to history """
         subtraction = Subtraction(args).getresult()
+        logger.debug('Subtract: %f - %f = %f', args[0], args[1], subtraction)
         History.add_calculation_to_history(subtraction)
         return History.get_last_calculation_added()
 
@@ -49,12 +69,19 @@ class Calculator:
     def multiply_nums(*args):
         """ Multiplies given list of numbers and appends the result to history """
         multiplication = Multiplication(args).getresult()
+        logger.debug('Multiply: %f * %f = %f', args[0], args[1], multiplication)
         History.add_calculation_to_history(multiplication)
         return History.get_last_calculation_added()
 
     @staticmethod
     def divide_nums(*args):
         """ Divides given list of numbers and appends the result to history """
-        division = Division(args).getresult()
-        History.add_calculation_to_history(division)
-        return History.get_last_calculation_added()
+        try:
+            division = Division(args).getresult()
+            History.add_calculation_to_history(division)
+        except ZeroDivisionError as err:
+            logger.exception(err)
+            return 0.0
+        else:
+            logger.debug('Divide: %f / %f = %f', args[0], args[1], division)
+            return History.get_last_calculation_added()

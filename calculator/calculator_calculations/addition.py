@@ -1,6 +1,5 @@
 """ Import Calculation Parent Class Constructor """
 from calculator.calculator_calculations.calculation import Calculation
-
 # This is addition method which inherits the calculation class constructor
 
 
